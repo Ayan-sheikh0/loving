@@ -1,0 +1,17 @@
+{
+  "name": "shreya-love-story",
+  "version": "1.0.0",
+  "description": "A 7-page interactive love story website, built as a static site (plain HTML, CSS, and JavaScript — no build step, no framework needed).",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "vite": "^8.3.0"
+  }
+}
