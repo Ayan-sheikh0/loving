@@ -165,11 +165,8 @@
 
       // Ensure horizontal swipe is dominant over vertical scrolling
       if (Math.abs(deltaX) > Math.abs(deltaY) * 1.5 && Math.abs(deltaX) > minSwipeDistance) {
-        // If letter overlay or photo lightbox is open, don't swipe page
+        // If letter overlay is open, don't swipe page
         if (letterOverlay && letterOverlay.style.display !== 'none') {
-          return;
-        }
-        if (galleryLightbox && galleryLightbox.style.display !== 'none') {
           return;
         }
 
@@ -295,18 +292,17 @@
        PAGE 7 — THE QUESTION (PLAYFUL NO BUTTON DODGE & YES)
        ===================================================== */
     const questionCard = document.getElementById('question-card');
-    const questionButtons = document.getElementById('question-buttons');
     const yesBtn = document.getElementById('yes-btn');
     const noBtn = document.getElementById('no-btn');
     const noDodgeMsg = document.getElementById('no-dodge-msg');
     const yesResult = document.getElementById('yes-result');
 
     const playfulQuotes = [
-      "Arre socho to sahi! 🙈",
+      "Arre Zehnish socho to sahi! 🙈",
       "No ka option hi nahi hai! 😉",
-      "Shreya please! Sirf YES chalega ❤️",
+      "Zehnish please! Sirf YES chalega ❤️",
       "Pakka? Ek baar aur socho! ✨",
-      "Dil se poocho, YES hi aayega! 🥰",
+      "Dil se poocho Zehnish, YES hi aayega! 🥰",
       "Main nahi maanunga jab tak YES na kaho! 💖"
     ];
     let quoteIndex = 0;
@@ -605,7 +601,6 @@
           audioCtx.resume();
         }
 
-        // F major -> C major -> D minor -> Bb major dreamy romantic sequence
         const chords = [
           [349.23, 440.00, 523.25, 659.25], // Fmaj7
           [261.63, 329.63, 392.00, 523.25], // C
@@ -627,7 +622,6 @@
           osc.type = 'sine';
           osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
 
-          // Soft chime attack and gentle decay
           gain.gain.setValueAtTime(0, audioCtx.currentTime);
           gain.gain.linearRampToValueAtTime(0.06, audioCtx.currentTime + 0.08);
           gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.2);
@@ -671,13 +665,11 @@
         if (iconMuted) iconMuted.style.display = 'none';
         if (iconPlaying) iconPlaying.style.display = 'block';
 
-        // Try playing native MP3 first
         if (bgAudio) {
           bgAudio.volume = 0.5;
           bgAudio.play().then(() => {
-            // Native audio played successfully
+            // Audio played
           }).catch(() => {
-            // If MP3 404s or is blocked, seamlessly fallback to soft Web Audio synth
             startRomanticSynth();
           });
         } else {
@@ -702,74 +694,10 @@
     }
 
     /* =====================================================
-       PAGE 6 — OUR PHOTOS GALLERY (LIGHTBOX / SLIDESHOW)
-       ===================================================== */
-    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-    const galleryLightbox = document.getElementById('gallery-lightbox');
-    const galleryBackdrop = document.getElementById('gallery-backdrop');
-    const galleryLightboxImg = document.getElementById('gallery-lightbox-img');
-    const galleryCounter = document.getElementById('gallery-counter');
-    const galleryCloseBtn = document.getElementById('gallery-close');
-    const galleryPrevBtn = document.getElementById('gallery-prev');
-    const galleryNextBtn = document.getElementById('gallery-next');
-
-    const galleryPhotos = galleryItems.map(item => {
-      const img = item.querySelector('img');
-      return { src: img.getAttribute('src'), alt: img.getAttribute('alt') };
-    });
-
-    let galleryCurrentIndex = 0;
-
-    function showGalleryPhoto(index) {
-      if (!galleryPhotos.length) return;
-      galleryCurrentIndex = (index + galleryPhotos.length) % galleryPhotos.length;
-      const photo = galleryPhotos[galleryCurrentIndex];
-      if (galleryLightboxImg) {
-        galleryLightboxImg.src = photo.src;
-        galleryLightboxImg.alt = photo.alt || 'Our photo';
-      }
-      if (galleryCounter) {
-        galleryCounter.textContent = `${galleryCurrentIndex + 1} / ${galleryPhotos.length}`;
-      }
-    }
-
-    function openGalleryLightbox(index) {
-      if (!galleryLightbox) return;
-      showGalleryPhoto(index);
-      galleryLightbox.style.display = 'flex';
-    }
-
-    function closeGalleryLightbox() {
-      if (!galleryLightbox) return;
-      galleryLightbox.style.display = 'none';
-    }
-
-    galleryItems.forEach((item, idx) => {
-      item.addEventListener('click', () => openGalleryLightbox(idx));
-    });
-
-    if (galleryCloseBtn) galleryCloseBtn.addEventListener('click', closeGalleryLightbox);
-    if (galleryBackdrop) galleryBackdrop.addEventListener('click', closeGalleryLightbox);
-    if (galleryPrevBtn) galleryPrevBtn.addEventListener('click', () => showGalleryPhoto(galleryCurrentIndex - 1));
-    if (galleryNextBtn) galleryNextBtn.addEventListener('click', () => showGalleryPhoto(galleryCurrentIndex + 1));
-
-    document.addEventListener('keydown', e => {
-      if (!galleryLightbox || galleryLightbox.style.display === 'none') return;
-      if (e.key === 'Escape') {
-        closeGalleryLightbox();
-      } else if (e.key === 'ArrowRight') {
-        showGalleryPhoto(galleryCurrentIndex + 1);
-      } else if (e.key === 'ArrowLeft') {
-        showGalleryPhoto(galleryCurrentIndex - 1);
-      }
-    });
-
-    /* =====================================================
        KEYBOARD NAVIGATION
        ===================================================== */
     document.addEventListener('keydown', e => {
-      const overlayOpen = (letterOverlay && letterOverlay.style.display !== 'none') ||
-        (galleryLightbox && galleryLightbox.style.display !== 'none');
+      const overlayOpen = (letterOverlay && letterOverlay.style.display !== 'none');
       if (e.key === 'ArrowRight' || e.key === 'PageDown') {
         if (currentPage < totalPages && !overlayOpen) {
           goTo(currentPage + 1);

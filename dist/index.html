@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>For Zehnish, With All My Heart ❤</title>
+  <meta name="description" content="A romantic, heartfelt love story written especially for Zehnish.">
+  <meta name="theme-color" content="#1a0610">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/index-CjjY5pxV.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DxBV26AO.css">
+</head>
+<body>
+
+  <!-- Ambient background canvas: soft floating glowing hearts & stardust -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Confetti canvas for celebration -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Floating Header Bar -->
+  <header class="app-header" id="app-header">
+    <button id="back-btn" class="nav-icon-btn back-btn" aria-label="Go back to previous page" hidden>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="back-text">Back</span>
+    </button>
+
+    <div class="progress-container" aria-live="polite">
+      <div class="progress-dots" id="progress-dots" aria-hidden="true">
+        <span class="dot active" data-step="1"></span>
+        <span class="dot" data-step="2"></span>
+        <span class="dot" data-step="3"></span>
+        <span class="dot" data-step="4"></span>
+        <span class="dot" data-step="5"></span>
+        <span class="dot" data-step="6"></span>
+        <span class="dot" data-step="7"></span>
+        <span class="dot" data-step="8"></span>
+      </div>
+      <span id="progress-label" class="progress-label">1 / 8</span>
+    </div>
+
+    <button id="sound-toggle" class="nav-icon-btn sound-toggle" aria-label="Play background romantic music" aria-pressed="false" title="Romantic Music">
+      <svg id="icon-muted" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/>
+        <line x1="17" y1="9" x2="22" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="22" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg id="icon-playing" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" style="display:none">
+        <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/>
+        <path d="M16 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M19 5.5a9 9 0 0 1 0 13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="music-wave" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+  </header>
+
+  <audio id="bg-audio" loop preload="none">
+    <source src="/assets/theme-DO_v64Ct.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Mobile Swipe Gesture Notification Hint -->
+  <div id="swipe-hint" class="swipe-hint" aria-hidden="true">
+    <span>‹ swipe to navigate ›</span>
+  </div>
+
+  <main id="story" class="story-container">
+
+    <!-- PAGE 1 — THE BEGINNING -->
+    <section class="page active" data-page="1" id="page-1" aria-label="Page 1 of 8, The Beginning">
+      <div class="page-inner center-stage">
+        <div class="eyebrow-pill">
+          <span class="sparkle">✨</span> For someone truly unforgettable
+        </div>
+        
+        <div class="hero-heart-container" aria-hidden="true">
+          <div class="heart-pulse-ring"></div>
+          <div class="heart-pulse-ring delay"></div>
+          <div class="hero-heart-glow"></div>
+          <svg viewBox="0 0 32 29.5" class="hero-heart-svg">
+            <defs>
+              <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff5b8c"/>
+                <stop offset="50%" stop-color="#e6396f"/>
+                <stop offset="100%" stop-color="#99153a"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#heartGrad)" d="M16 28.6C11.6 24.9 1 16.4 1 9.1 1 4.4 4.6 1 9.1 1c2.7 0 5.2 1.4 6.9 3.6C17.7 2.4 20.2 1 22.9 1 27.4 1 31 4.4 31 9.1c0 7.3-10.6 15.8-15 19.5z"/>
+          </svg>
+        </div>
+
+        <h1 class="name-reveal">Zehnish <span class="heart-inline">❤</span></h1>
+        
+        <p class="opening-line">
+          Kuch log zindagi mein aate hain aur bina kisi shart ke poori duniya se zyada khaas aur anmol ban jaate hain&hellip;
+        </p>
+
+        <button class="next-btn glow-btn pulse-action" data-next aria-label="Begin our story">
+          <span>Begin Our Story</span>
+          <span class="btn-heart" aria-hidden="true">❤</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 2 — THE FIRST SIGHT (11 JULY MONDAY) -->
+    <section class="page" data-page="2" id="page-2" aria-label="Page 2 of 8, The First Sight">
+      <div class="page-inner">
+        <p class="section-tag">The First Sight</p>
+        <h2 class="page-title">The Day Everything Changed&hellip;</h2>
+        
+        <div class="date-card glass-card tilt-card">
+          <div class="date-badge">
+            <span class="badge-icon">📅</span>
+            <span class="badge-date">11 July &bull; Monday</span>
+          </div>
+          
+          <div class="memory-quote">
+            <span class="quote-mark">“</span>
+            <p class="date-text">
+              <strong>11 July, Monday</strong> ka wo din mere liye sirf ek tareekh nahi tha&hellip; wo meri zindagi ka sabse khoobsurat mod tha. Wo pehla lamha jab meri nazar tum par padi, aur pehli hi nazar mein mujhe tumse be-panaah pyaar ho gaya.
+            </p>
+            <p class="date-text-sub">
+              Us ek pal ne mujhe hamesha ke liye badal diya. Tab se lekar aaj tak, main tumhara ek devoted <strong>one-sided lover</strong> ban gaya &mdash; jo bina kisi shart ke sirf tumhari khushi aur muskurahat chahta hai.
+            </p>
+            <span class="quote-mark end">”</span>
+          </div>
+
+          <div class="date-glow-hearts" aria-hidden="true">
+            <span>❤</span><span>✨</span><span>❤</span>
+          </div>
+        </div>
+
+        <button class="next-btn glow-btn" data-next aria-label="Continue to next chapter">
+          <span>There&rsquo;s More&hellip;</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 3 — EVERYTHING ABOUT YOU (TAAREEFEN) -->
+    <section class="page" data-page="3" id="page-3" aria-label="Page 3 of 8, Everything About You">
+      <div class="page-inner wide">
+        <p class="section-tag">Tumhari Khoobsurti &amp; Adaayein</p>
+        <h2 class="page-title">Everything About You&hellip; ✨</h2>
+        <p class="page-subtitle">Tap on each card to read what makes my heart skip a beat <span aria-hidden="true">👇</span></p>
+
+        <div class="trait-grid" role="list">
+          <button class="trait-card glass-card" type="button" role="listitem" aria-expanded="false">
+            <div class="trait-icon-box" aria-hidden="true">💖</div>
+            <h3 class="trait-name">Your Beauty</h3>
+            <p class="trait-text">Your beauty isn&rsquo;t just in how you look; it&rsquo;s a pure, radiant warmth that touches my soul directly.</p>
+          </button>
+
+          <button class="trait-card glass-card" type="button" role="listitem" aria-expanded="false">
+            <div class="trait-icon-box" aria-hidden="true">✨</div>
+            <h3 class="trait-name">Your Hair</h3>
+            <p class="trait-text">The graceful way your hair falls has its own magic that effortlessly makes you even more mesmerizing.</p>
+          </button>
+
+          <button class="trait-card glass-card" type="button" role="listitem" aria-expanded="false">
+            <div class="trait-icon-box" aria-hidden="true">👀</div>
+            <h3 class="trait-name">Your Eyes</h3>
+            <p class="trait-text">Tumhari aankhon mein ek aisi gehrai aur noor hai jisme doob kar main saari duniya bhool jata hoon.</p>
+          </button>
+
+          <button class="trait-card glass-card" type="button" role="listitem" aria-expanded="false">
+            <div class="trait-icon-box" aria-hidden="true">😊</div>
+            <h3 class="trait-name">Your Smile</h3>
+            <p class="trait-text">Tumhari ek muskurahat mere sabse thake aur udaas din ko bhi roshni se bhar deti hai.</p>
+          </button>
+
+          <button class="trait-card glass-card" type="button" role="listitem" aria-expanded="false">
+            <div class="trait-icon-box" aria-hidden="true">🌸</div>
+            <h3 class="trait-name">Your Cute Nose</h3>
+            <p class="trait-text">The sweetest, most adorable little feature with its own soft and irresistible charm.</p>
+          </button>
+
+          <button class="trait-card glass-card" type="button" role="listitem" aria-expanded="false">
+            <div class="trait-icon-box" aria-hidden="true">💋</div>
+            <h3 class="trait-name">Your Lips</h3>
+            <p class="trait-text">Your lips make every sweet laughter and word sound like poetry to my ears.</p>
+          </button>
+
+          <button class="trait-card glass-card" type="button" role="listitem" aria-expanded="false">
+            <div class="trait-icon-box" aria-hidden="true">💗</div>
+            <h3 class="trait-name">Your Pure Soul</h3>
+            <p class="trait-text">Warm, caring, genuine, and innocent &mdash; that rare goodness inside you is what I truly fell for.</p>
+          </button>
+
+          <button class="trait-card glass-card" type="button" role="listitem" aria-expanded="false">
+            <div class="trait-icon-box" aria-hidden="true">🦋</div>
+            <h3 class="trait-name">The Little Things</h3>
+            <p class="trait-text">The innocent habits nobody else notices are the very reasons my heart beats only for you.</p>
+          </button>
+        </div>
+
+        <p class="closing-line">Honestly&hellip; har ek ada lafzon se pare hai. It is YOU, completely and wholeheartedly.</p>
+        
+        <button class="next-btn glow-btn" data-next aria-label="Open Dil ki Baat letter">
+          <span>Read Dil Ki Baat</span>
+          <span class="btn-heart" aria-hidden="true">💌</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 4 — DIL KI BAAT (HEART ENVELOPE & REAL HANDWRITTEN LETTER FOR ZEHNISH) -->
+    <section class="page" data-page="4" id="page-4" aria-label="Page 4 of 8, Dil Ki Baat Love Letter">
+      <div class="page-inner">
+        <p class="section-tag">Dil Ki Baat</p>
+        <h2 class="page-title">A Letter From My Heart <span aria-hidden="true">💌</span></h2>
+        <p class="page-subtitle">Tap the heart envelope to open my handwritten letter</p>
+
+        <!-- Interactive Heart-Shaped Envelope -->
+        <div id="heart-envelope-container" class="heart-envelope-container">
+          <div class="envelope-glow-aura" aria-hidden="true"></div>
+          
+          <button id="heart-envelope" class="heart-envelope-btn" aria-label="Tap to open the heart envelope and read the letter" aria-expanded="false">
+            <div class="heart-envelope-wrapper">
+              <!-- Heart Base Geometry -->
+              <svg viewBox="0 0 200 180" class="heart-envelope-svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="envelopeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#e6396f"/>
+                    <stop offset="60%" stop-color="#99153a"/>
+                    <stop offset="100%" stop-color="#4d081d"/>
+                  </linearGradient>
+                  <linearGradient id="flapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ff7597"/>
+                    <stop offset="100%" stop-color="#d82c5d"/>
+                  </linearGradient>
+                  <filter id="envelopeGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#ff5b8c" flood-opacity="0.4"/>
+                  </filter>
+                </defs>
+                
+                <!-- Envelope Body -->
+                <path class="env-body" fill="url(#envelopeGrad)" filter="url(#envelopeGlow)" d="M100 175 C30 120 5 75 5 42 C5 18 24 2 50 2 C70 2 88 14 100 30 C112 14 130 2 150 2 C176 2 195 18 195 42 C195 75 170 120 100 175 Z"/>
+                
+                <!-- Fold lines on envelope -->
+                <path class="env-fold-left" d="M10 45 L100 115 L10 125" fill="rgba(0,0,0,0.12)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <path class="env-fold-right" d="M190 45 L100 115 L190 125" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <path class="env-bottom-fold" d="M10 125 L100 175 L190 125 Z" fill="rgba(0,0,0,0.22)"/>
+
+                <!-- Letter paper peeking out -->
+                <g class="env-paper-peek">
+                  <rect x="52" y="30" width="96" height="65" rx="4" fill="#faf4eb" stroke="#ebd6c3" stroke-width="1"/>
+                  <line x1="62" y1="44" x2="138" y2="44" stroke="#cbb3a1" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="62" y1="56" x2="128" y2="56" stroke="#cbb3a1" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="62" y1="68" x2="118" y2="68" stroke="#e6396f" stroke-width="1.5" stroke-linecap="round"/>
+                </g>
+
+                <!-- Top Heart Flap -->
+                <path class="env-flap" fill="url(#flapGrad)" d="M5 42 C5 18 24 2 50 2 C70 2 88 14 100 30 C112 14 130 2 150 2 C176 2 195 18 195 42 C170 80 130 110 100 112 C70 110 30 80 5 42 Z"/>
+              </svg>
+
+              <!-- Glowing Wax Seal on the Heart -->
+              <div class="heart-wax-seal" aria-hidden="true">
+                <span class="seal-heart">❤</span>
+                <span class="seal-glow"></span>
+              </div>
+            </div>
+
+            <span class="envelope-tap-prompt">
+              <span class="tap-hand">👆</span> Tap Heart to Open Letter
+            </span>
+          </button>
+        </div>
+
+        <!-- Continue Button -->
+        <div class="letter-nav-actions">
+          <button id="open-letter-btn" class="secondary-btn" type="button">
+            <span>Open &amp; Read Letter</span> 📖
+          </button>
+          <button class="next-btn glow-btn" id="page4-next" data-next>
+            <span>Continue Our Story</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- AUTHENTIC HANDWRITTEN LOVE LETTER MODAL DIALOG -->
+      <div id="letter-overlay" class="letter-overlay" role="dialog" aria-modal="true" aria-label="Zehnish's Handwritten Love Letter" style="display: none;">
+        <div class="letter-backdrop" id="letter-backdrop"></div>
+        
+        <div id="letter-paper" class="handwritten-paper">
+          <!-- Paper decoration lines and stamps -->
+          <div class="paper-texture-overlay" aria-hidden="true"></div>
+          <div class="paper-crease-horizontal" aria-hidden="true"></div>
+          <div class="paper-stamp-love" aria-hidden="true">
+            <span>DIL SE</span>
+            <small>FOR ZEHNISH</small>
+          </div>
+
+          <!-- Letter Header with Date & Salutation -->
+          <div class="letter-header">
+            <span class="letter-date-handwritten">With love &bull; Hamesha ke liye ❤</span>
+            <button id="close-letter-top" class="letter-close-icon-btn" aria-label="Close letter">✕</button>
+          </div>
+
+          <div class="letter-body-content">
+            <h3 class="letter-salutation">Meri Pyaari Zehnish,</h3>
+            
+            <p class="letter-hand-p">
+              Main nahi jaanta ki lafz kabhi wo sab bayan kar paayenge jo main tumhare liye mehsoos karta hoon, lekin aaj dil ki har baat tumhare aage sach-sach rakhna chahta hoon.
+            </p>
+            
+            <p class="letter-hand-p">
+              Jab maine tumhe <strong>11 July (Monday)</strong> ko pehli baar dekha tha, usi ek nazar mein mujhe tumse be-inteha pyaar ho gaya. Mujhe andaza bhi nahi tha ki tum meri zindagi ka sabse anmol aur khoobsurat hissa ban jaogi.
+            </p>
+            
+            <p class="letter-hand-p highlight-p">
+              Us din ke baad se main tumhara ek <strong>one-sided lover</strong> ban kar reh gaya &mdash; ek aisa aashiq jo bina kisi umeed ya shart ke, sirf dil se tumhari khushi aur salamati ki dua maangta hai.
+            </p>
+
+            <p class="letter-hand-p">
+              Main jaanta hoon Zehnish, kabhi kabhi main <strong>over-possessive</strong> ho jata hoon&hellip; Aur uske liye main dil ki gehraiyon se tumse <strong>sorry</strong> bolta hoon. Mera irada kabhi tumhe baandhna ya uncomfortable karna nahi tha, bas tumhe khone ke darr aur be-panah fikar ki wajah se aisa ho jata hai.
+            </p>
+
+            <p class="letter-hand-p romantic-vow">
+              Tum meri zindagi ki sabse pyari khushi ho. Chahe waqt kaisa bhi guzre, meri respect aur mera pyaar tumhare liye hamesha utna hi paak rahega.
+            </p>
+
+            <div class="letter-sign-block">
+              <span class="sign-note">Dil ki gehraiyon se,</span>
+              <span class="sign-name">Yours Forever ❤</span>
+              <div class="hand-drawn-heart" aria-hidden="true">
+                <svg viewBox="0 0 50 35" width="45" height="32">
+                  <path d="M5,18 C5,8 18,3 25,12 C32,3 45,8 45,18 C45,28 28,34 25,35 C22,34 5,28 5,18 Z" fill="none" stroke="#e6396f" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="letter-actions-bar">
+            <button id="close-letter" class="close-letter-btn glow-btn" type="button">
+              <span>Back to Story</span> ❤
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5 — AN HONEST APOLOGY & MY HEART'S TRUTH -->
+    <section class="page" data-page="5" id="page-5" aria-label="Page 5 of 8, An Honest Apology & Sincere Promise">
+      <div class="page-inner">
+        <p class="section-tag">Dil Ki Sacchai</p>
+        <h2 class="page-title">A Sincere Apology &amp; Promise 🤍</h2>
+        
+        <div class="apology-card glass-card tilt-card">
+          <div class="apology-badge">
+            <span class="apology-icon">🕊️</span>
+            <span class="apology-tag">Dil Se Sorry</span>
+          </div>
+
+          <h3 class="apology-title">I&rsquo;m Truly Sorry for Being Over-Possessive&hellip;</h3>
+
+          <p class="apology-text">
+            Jab dil kisi se behisaab mohabbat karta hai, toh kabhi kabhi be-panah fikar aur khone ka darr over-possessiveness ban kar nikal aata hai. Main jaanta hoon meri is aadat ne shayad kabhi tumhe uncomfortable mehsoos karaya ho.
+          </p>
+
+          <p class="apology-text-highlight">
+            Uske liye main dil ki gehraiyon se tumse maafi maangta hoon, Zehnish. Mera maqsad kabhi tumhari azaadi ya muskurahat par bandish lagana nahi tha.
+          </p>
+
+          <div class="promises-container">
+            <div class="promise-item">
+              <span class="p-icon">🌸</span>
+              <div class="p-content">
+                <strong>Pure Respect &amp; Space</strong>
+                <span>Tumhari marzi, freedom aur comfort hamesha sabse pehle rahega.</span>
+              </div>
+            </div>
+
+            <div class="promise-item">
+              <span class="p-icon">💖</span>
+              <div class="p-content">
+                <strong>Unconditional Love</strong>
+                <span>Bina kisi shart aur bina kisi pressure ke sirf tumhara bhala sochna.</span>
+              </div>
+            </div>
+
+            <div class="promise-item">
+              <span class="p-icon">🕊️</span>
+              <div class="p-content">
+                <strong>Always Supporting You</strong>
+                <span>Zindagi ke har mod par ek sacche dost aur sahare ki tarah khada rehna.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="next-btn glow-btn" data-next aria-label="Proceed to reasons why you are special">
+          <span>Why You Mean The World</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 6 — REASONS WHY MY HEART CHOSE YOU -->
+    <section class="page" data-page="6" id="page-6" aria-label="Page 6 of 8, Reasons Why My Heart Chose You">
+      <div class="page-inner wide">
+        <p class="section-tag">Why You Mean Everything</p>
+        <h2 class="page-title">Reasons My Heart Chose You 🌸</h2>
+        <p class="page-subtitle">Little truths my heart whispers every single day <span aria-hidden="true">✨</span></p>
+
+        <div class="reasons-grid" role="list">
+          <div class="reason-card glass-card" role="listitem">
+            <div class="reason-number">01</div>
+            <div class="reason-icon">📅</div>
+            <h3 class="reason-head">Pehli Nazar Ka Asar</h3>
+            <p class="reason-desc">11 July Monday ko pehli baar dekhte hi dil ne keh diya tha ki tum jaisa koi doosra ho hi nahi sakta.</p>
+          </div>
+
+          <div class="reason-card glass-card" role="listitem">
+            <div class="reason-number">02</div>
+            <div class="reason-icon">✨</div>
+            <h3 class="reason-head">Sukoon Bhari Maujoodgi</h3>
+            <p class="reason-desc">Tumhara ek khayal ya deedar mere poore din ki saari thakan aur pareshani pal bhar mein mita deta hai.</p>
+          </div>
+
+          <div class="reason-card glass-card" role="listitem">
+            <div class="reason-number">03</div>
+            <div class="reason-icon">🕊️</div>
+            <h3 class="reason-head">Ek Tarfa Saccha Pyaar</h3>
+            <p class="reason-desc">One-sided lover ban kar maine seekha ki saccha pyaar wo hai jo badle mein kuch nahi chahta, bas tumhari muskaan chahta hai.</p>
+          </div>
+
+          <div class="reason-card glass-card" role="listitem">
+            <div class="reason-number">04</div>
+            <div class="reason-icon">🤲</div>
+            <h3 class="reason-head">Meri Har Dua Mein Tum</h3>
+            <p class="reason-desc">Main chahe jo bhi maangu, meri har khamosh dua ka pehla aur aakhiri naam hamesha Zehnish hota hai.</p>
+          </div>
+        </div>
+
+        <button class="next-btn glow-btn" data-next aria-label="Continue to the question">
+          <span>One Last Question&hellip;</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 7 — THE QUESTION (INTERACTIVE PLAYFUL PROPOSAL) -->
+    <section class="page" data-page="7" id="page-7" aria-label="Page 7 of 8, The Question">
+      <div class="page-inner center-stage">
+        <p class="section-tag">From My Heart</p>
+        <h2 class="page-title">Zehnish, I Have One Question&hellip;</h2>
+
+        <div class="question-card glass-card tilt-card" id="question-card">
+          <div class="question-heart-icon" aria-hidden="true">💍</div>
+          <p class="question-text">
+            Will you allow me to love you, care for you, and stay in your story forever? <span class="heart-inline">❤</span>
+          </p>
+
+          <div class="question-buttons-area" id="question-buttons">
+            <button id="yes-btn" class="yes-btn glow-btn" type="button">
+              <span>YES, ALWAYS!</span> <span aria-hidden="true">❤</span>
+            </button>
+            <button id="no-btn" class="no-btn" type="button" aria-label="No button">
+              <span>NO</span>
+            </button>
+          </div>
+          
+          <p id="no-dodge-msg" class="no-dodge-msg" aria-live="polite"></p>
+        </div>
+
+        <!-- YES RESULT CELEBRATION -->
+        <div id="yes-result" class="yes-result glass-card" style="display: none;">
+          <div class="celebration-emoji" aria-hidden="true">🎉💖🥰</div>
+          <h3 class="yes-message">I knew your heart would say YES! <span aria-hidden="true">❤</span></h3>
+          <p class="yes-sub">You are my forever and always&hellip; There is one final surprise waiting for you!</p>
+          <button class="next-btn glow-btn pulse-action" data-next aria-label="Open final surprise">
+            <span>Open Final Surprise</span>
+            <span class="btn-heart" aria-hidden="true">🎁</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 8 — THE GRAND FINALE -->
+    <section class="page page-final" data-page="8" id="page-8" aria-label="Page 8 of 8, The Final Message">
+      <div class="page-inner center-stage">
+        <div class="finale-sparkles" aria-hidden="true">✨ 💖 ✨</div>
+        
+        <h2 class="final-title">
+          I LOVE YOU <br>
+          <span class="final-name">ZEHNISH</span> <span class="heart-inline">❤</span>
+        </h2>
+        
+        <p class="final-sub">More than words, stars, or time could ever explain.</p>
+
+        <div class="final-summary-card glass-card">
+          <div class="summary-badge">Our Journey</div>
+          <div class="final-timeline-list">
+            <div class="journey-row">
+              <span class="j-icon">👀</span>
+              <span class="j-date">11 July (Monday)</span>
+              <span class="j-text">The moment I first saw you &amp; fell in love at first sight</span>
+            </div>
+            <div class="journey-row">
+              <span class="j-icon">💖</span>
+              <span class="j-date">One-Sided Lover</span>
+              <span class="j-text">Loving you purely, unconditionally &amp; wholeheartedly</span>
+            </div>
+            <div class="journey-row">
+              <span class="j-icon">🕊️</span>
+              <span class="j-date">Dil Se Maafi &amp; Promise</span>
+              <span class="j-text">Promising pure respect, boundless space &amp; endless care</span>
+            </div>
+          </div>
+          <p class="vow-quote">“Chahe raaste kitne bhi anjaan hon, mera dil hamesha tumhare naam se hi dhadkega.”</p>
+        </div>
+
+        <p class="final-huge">Hamesha Tumhara, Only Yours <span class="heart-inline">❤</span></p>
+
+        <div class="final-actions-group">
+          <button id="replay-btn" class="glow-btn replay-btn" type="button">
+            <span>Replay Our Story</span> <span aria-hidden="true">↻</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
