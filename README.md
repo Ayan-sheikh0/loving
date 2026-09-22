@@ -7,7 +7,7 @@ An interactive, responsive love story web experience crafted with love for **Zeh
 ## ✨ Features
 
 - 💖 **Dedicated 8-Page Interactive Story Journey**:
-  1. **The Beginning** — Ambient floating glowing hearts, sound toggle & warm opening for Zehnish.
+  1. **The Beginning** — Ambient floating glowing hearts, sound toggle & warm opening for Zehnish khan.
   2. **The First Sight** — Dedicated to **11 July (Monday)**, the moment of love at first sight and becoming a devoted one-sided lover.
   3. **Everything About You (Taareefen)** — Interactive cards celebrating her beauty, hair, eyes, smile, cute nose, lips, pure soul, and cute little habits.
   4. **Dil Ki Baat (Love Letter Modal)** — 3D Wax-sealed heart envelope with handwritten parchment letter for Zehnish.
